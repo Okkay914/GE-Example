@@ -1,6 +1,3 @@
 {
-  "buildCommand": "next build",
-  "outputDirectory": "out",
-  "installCommand": "npm install",
   "framework": "nextjs"
 }
