@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: 'public',
+  distDir: '.next',  // Changed from 'public'
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
   reactStrictMode: true,
   swcMinify: true
 }
