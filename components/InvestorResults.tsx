@@ -90,17 +90,17 @@ const InvestorResults = () => {
           <p className="text-gray-600">Total Meetings</p>
         </div>
 
-       <div className="h-80"> {/* Increased from h-64 */}
+     <div className="h-80">
   <ResponsiveContainer>
     <BarChart 
       data={getActiveData()} 
-      margin={{ top: 20, right: 30, left: 20, bottom: 100 }} // Increased bottom margin
+      margin={{ top: 20, right: 30, left: 20, bottom: 100 }}
     >
       <XAxis 
         dataKey="category" 
         angle={-45} 
         textAnchor="end"
-        height={100} // Increased from 60
+        height={100}
         interval={0}
         tick={{
           fill: '#4b5563',
@@ -108,7 +108,15 @@ const InvestorResults = () => {
           dy: 10
         }}
       />
-      {/* Rest of the chart components remain the same */}
+      <YAxis 
+        tick={{ fill: '#4b5563' }}
+      />
+      <Tooltip />
+      <Bar dataKey="count">
+        {getActiveData().map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={entry.color} />
+        ))}
+      </Bar>
     </BarChart>
   </ResponsiveContainer>
 </div>
