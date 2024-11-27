@@ -90,26 +90,28 @@ const InvestorResults = () => {
           <p className="text-gray-600">Total Meetings</p>
         </div>
 
-        <div className="h-64">
-          <ResponsiveContainer>
-            <BarChart data={getActiveData()} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
-              <XAxis 
-                dataKey="category" 
-                angle={-45} 
-                textAnchor="end"
-                height={60}
-                tick={{ fill: '#4b5563' }}
-              />
-              <YAxis tick={{ fill: '#4b5563' }} />
-              <Tooltip />
-              <Bar dataKey="count">
-                {getActiveData().map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
+       <div className="h-80"> {/* Increased from h-64 */}
+  <ResponsiveContainer>
+    <BarChart 
+      data={getActiveData()} 
+      margin={{ top: 20, right: 30, left: 20, bottom: 100 }} // Increased bottom margin
+    >
+      <XAxis 
+        dataKey="category" 
+        angle={-45} 
+        textAnchor="end"
+        height={100} // Increased from 60
+        interval={0}
+        tick={{
+          fill: '#4b5563',
+          fontSize: 12,
+          dy: 10
+        }}
+      />
+      {/* Rest of the chart components remain the same */}
+    </BarChart>
+  </ResponsiveContainer>
+</div>
 
         <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="bg-gray-50 p-4 rounded-lg">
